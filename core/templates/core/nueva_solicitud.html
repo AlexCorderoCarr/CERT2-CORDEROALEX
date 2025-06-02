@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% block contenido %}
+<style>
+    body {
+        background-color: #158bb3;
+    }
+    </style>
+
+<div class="container mt-5">
+    <h2>Ingresar Nueva Solicitud</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Enviar Solicitud</button>
+    </form>
+</div>
+{% endblock %}

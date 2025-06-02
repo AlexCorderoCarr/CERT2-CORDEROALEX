@@ -1,0 +1,74 @@
+{%extends 'core/base.html'%}
+
+{% block contenido%}
+
+<style>
+    body {
+        background-color: #0aace2;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .seccion-general {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .card-header {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+</style>
+
+<div class="container2 mt-5">
+    <h2 class="mb-4 text-center">Métricas Públicas de Reciclaje</h2>
+
+    <!-- Sección: Solicitudes por mes -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            Solicitudes por mes
+        </div>
+        <div class="card-body">
+            {% if solicitudes_por_mes %}
+                <ul class="list-group">
+                    {% for item in solicitudes_por_mes %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ item.mes }}
+                            <span class="badge bg-primary rounded-pill">{{ item.total }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No hay solicitudes registradas.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Sección: Materiales más reciclados -->
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            Materiales más reciclados
+        </div>
+        <div class="card-body">
+            {% if materiales_mas_solicitados %}
+                <ul class="list-group">
+                    {% for item in materiales_mas_solicitados %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ item.material__nombre }}
+                            <span class="badge bg-secondary rounded-pill">{{ item.total }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No hay solicitudes registradas.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

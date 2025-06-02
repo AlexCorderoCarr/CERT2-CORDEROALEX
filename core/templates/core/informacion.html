@@ -1,0 +1,77 @@
+{%extends 'core/base.html'%}
+
+{% block contenido%}
+
+<style>
+    body {
+        background-color: #0aace2;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .seccion-general {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .card-header {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+</style>
+
+<div class="container1 mt-5">
+    <h2 class="mb-4 text-center">Información General del Sistema</h2>
+
+    <!-- Materiales aceptados -->
+    <div class="card mb-4">
+        <div class="card-header bg-secondary text-white">
+            Materiales Aceptados
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {% for material in materiales %}
+                <li class="list-group-item">
+                    <strong>{{ material.codigo }} - {{ material.nombre }}</strong><br>
+                    {{ material.descripcion }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Puntos limpios -->
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            Puntos Limpios en Viña del Mar
+        </div>
+        <div class="card-body">
+            <ul>
+                <li>Plaza Sucre - Calle Valparaíso 777</li>
+                <li>Parque Sausalito - Entrada por Av. Padre Hurtado</li>
+                <li>Sector Gómez Carreño - Av. Frei esq. Vicuña</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Recomendaciones -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            Recomendaciones
+        </div>
+        <div class="card-body">
+            <ul>
+                <li>Limpia y seca los reciclables antes de entregarlos.</li>
+                <li>Evita entregar materiales mezclados (ej: papel con plástico).</li>
+                <li>No entregues residuos peligrosos o contaminados.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

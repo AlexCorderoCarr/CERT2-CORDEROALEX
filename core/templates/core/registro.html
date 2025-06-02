@@ -1,0 +1,37 @@
+{%extends 'core/base.html'%}
+
+{% block contenido%}
+
+<style>
+    body {
+        background-color: #158bb3;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .seccion-general {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .card-header {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Registro de Usuario</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Registrarse</button>
+    </form>
+</div>
+{% endblock %}
